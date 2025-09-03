@@ -1,0 +1,9 @@
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\bin\Debug\TpWindowsForms.exe.config
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\bin\Debug\TpWindowsForms.exe
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\bin\Debug\TpWindowsForms.pdb
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.AssemblyReference.cache
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.Properties.Resources.resources
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.GenerateResource.cache
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.CoreCompileInputs.cache
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.exe
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.pdb

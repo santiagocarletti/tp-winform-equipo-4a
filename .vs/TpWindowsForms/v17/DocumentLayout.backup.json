@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|e:\\c\u00F3digoprogramaci\u00F3n3\\4_winforms\\3_tpgrupalwindowsforms\\tpwindowsforms\\tpwindowsforms\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|solutionrelative:tpwindowsforms\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|e:\\c\u00F3digoprogramaci\u00F3n3\\4_winforms\\3_tpgrupalwindowsforms\\tpwindowsforms\\tpwindowsforms\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|solutionrelative:tpwindowsforms\\marca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|e:\\c\u00F3digoprogramaci\u00F3n3\\4_winforms\\3_tpgrupalwindowsforms\\tpwindowsforms\\tpwindowsforms\\articulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|solutionrelative:tpwindowsforms\\articulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|e:\\c\u00F3digoprogramaci\u00F3n3\\4_winforms\\3_tpgrupalwindowsforms\\tpwindowsforms\\tpwindowsforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{93F7D161-4D2D-4686-B6CF-2403723B3B9E}|TpWindowsForms\\TpWindowsForms.csproj|solutionrelative:tpwindowsforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Categoria.cs",
+              "RelativeDocumentMoniker": "TpWindowsForms\\Categoria.cs",
+              "ToolTip": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Categoria.cs",
+              "RelativeToolTip": "TpWindowsForms\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T18:45:47.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Marca.cs",
+              "DocumentMoniker": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Marca.cs",
+              "RelativeDocumentMoniker": "TpWindowsForms\\Marca.cs",
+              "ToolTip": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Marca.cs",
+              "RelativeToolTip": "TpWindowsForms\\Marca.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T18:44:38.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Articulo.cs",
+              "DocumentMoniker": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Articulo.cs",
+              "RelativeDocumentMoniker": "TpWindowsForms\\Articulo.cs",
+              "ToolTip": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Articulo.cs",
+              "RelativeToolTip": "TpWindowsForms\\Articulo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T18:37:56.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Form1.cs",
+              "RelativeDocumentMoniker": "TpWindowsForms\\Form1.cs",
+              "ToolTip": "E:\\C\u00F3digoProgramaci\u00F3n3\\4_WinForms\\3_TpGrupalWindowsForms\\TpWindowsForms\\TpWindowsForms\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "TpWindowsForms\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T18:37:21.583Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
