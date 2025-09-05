@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace TpWindowsForms
 {
-    public partial class Form1 : Form
+    public partial class FormAgregar : Form
     {
-        public Form1()
+        public FormAgregar()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listar();
         }
     }
 }

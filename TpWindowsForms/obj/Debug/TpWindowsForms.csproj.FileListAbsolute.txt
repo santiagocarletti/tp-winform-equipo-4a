@@ -7,3 +7,6 @@ E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWind
 E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.CoreCompileInputs.cache
 E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.exe
 E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.pdb
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.exe.config
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.Form1.resources
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\TpWindowsForms\TpWindowsForms\obj\Debug\TpWindowsForms.FormAgregar.resources
