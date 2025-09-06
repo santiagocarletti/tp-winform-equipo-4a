@@ -20,7 +20,7 @@ namespace TpWindowsForms
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio from Articulos";
+                comando.CommandText = "Select A.Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio, I.ImagenUrl from Articulos A, IMAGENES I WHERE A.Id = I.Id";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -36,6 +36,8 @@ namespace TpWindowsForms
                     aux.IdMarca = (int)lector["IdMarca"];
                     aux.IdCategoria = (int)lector["IdCategoria"];
                     aux.Precio = (decimal)lector["Precio"];
+                    aux.Imagen = new Imagen();
+                    aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
 
                     lista.Add(aux);
 
