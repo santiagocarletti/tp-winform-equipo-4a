@@ -21,3 +21,18 @@ C:\Users\ferna\Documents\UTN 2do Año\Programacion\Repo Github Winforms\tp-winfo
 C:\Users\ferna\Documents\UTN 2do Año\Programacion\Repo Github Winforms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.CoreCompileInputs.cache
 C:\Users\ferna\Documents\UTN 2do Año\Programacion\Repo Github Winforms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.exe
 C:\Users\ferna\Documents\UTN 2do Año\Programacion\Repo Github Winforms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.pdb
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\TpWindowsForms.exe.config
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\TpWindowsForms.exe
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\TpWindowsForms.pdb
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.AssemblyReference.cache
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.exe.config
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.Form1.resources
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.FormAgregar.resources
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.Properties.Resources.resources
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.GenerateResource.cache
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.csproj.CoreCompileInputs.cache
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.exe
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindowsForms.pdb
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\dominio.dll
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\dominio.pdb
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindow.6505EF76.Up2Date
