@@ -36,3 +36,5 @@ E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\
 E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\dominio.dll
 E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\dominio.pdb
 E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\obj\Debug\TpWindow.6505EF76.Up2Date
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\negocio.dll
+E:\CódigoProgramación3\4_WinForms\3_TpGrupalWindowsForms\tp-winform-equipo-4a\TpWindowsForms\bin\Debug\negocio.pdb
