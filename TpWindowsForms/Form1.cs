@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
+using negocio;
 
 namespace TpWindowsForms
 {
@@ -24,6 +25,7 @@ namespace TpWindowsForms
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar();
             dgvArticulos.DataSource = listaArticulos;
+            dgvArticulos.Columns["Imagen"].Visible = false;
             pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
         }
 
@@ -41,7 +43,7 @@ namespace TpWindowsForms
             }
             catch (Exception ex)
             {
-                pbxArticulos.Load("https://th.bing.com/th/id/OIP.iWIEidVomFA1iDjwsqxv6wHaHa?w=168&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+                pbxArticulos.Load("https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-placeholder-line-icon-vector-png-image_6691835.png");
             }
         }
     }

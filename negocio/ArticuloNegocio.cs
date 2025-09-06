@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using dominio;
 
-namespace TpWindowsForms
+namespace negocio
 {
-    class ArticuloNegocio
+    public class ArticuloNegocio
     {
         public List<Articulo> listar()
         {
