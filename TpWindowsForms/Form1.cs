@@ -46,5 +46,11 @@ namespace TpWindowsForms
                 pbxArticulos.Load("https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-placeholder-line-icon-vector-png-image_6691835.png");
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FormAgregar alta = new FormAgregar();
+            alta.ShowDialog();
+        }
     }
 }

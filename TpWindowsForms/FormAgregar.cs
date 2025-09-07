@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
+using negocio;
 
 namespace TpWindowsForms
 {
@@ -16,6 +17,32 @@ namespace TpWindowsForms
         public FormAgregar()
         {
             InitializeComponent();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Articulo Arti = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                Arti.Codigo = txtNumero.Text;
+                Arti.Nombre = txtNombre.Text;
+                Arti.Descripcion = txtDescripcion.Text;
+
+                negocio.agregar(Arti);
+                MessageBox.Show("Agregado correctamente");
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
