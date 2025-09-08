@@ -53,5 +53,15 @@ namespace TpWindowsForms
             FormAgregar alta = new FormAgregar();
             alta.ShowDialog();
         }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
