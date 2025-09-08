@@ -25,6 +25,7 @@ namespace TpWindowsForms
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar();
             dgvArticulos.DataSource = listaArticulos;
+            dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["Imagen"].Visible = false;
             pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
         }

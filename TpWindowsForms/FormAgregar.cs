@@ -44,5 +44,19 @@ namespace TpWindowsForms
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void FormAgregar_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                cboMarca.DataSource = articuloNegocio.listar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
