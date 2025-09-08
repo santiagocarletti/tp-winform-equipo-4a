@@ -19,5 +19,9 @@ namespace dominio
         public Imagen Imagen { get; set; }
 
 
+        public override string ToString()
+        {
+            return marca.Descripcion;
+        }
     }
 }

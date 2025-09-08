@@ -47,10 +47,10 @@ namespace TpWindowsForms
 
         private void FormAgregar_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
             try
             {
-                cboMarca.DataSource = articuloNegocio.listar();
+                cboMarca.DataSource = marcaNegocio.listar();
 
             }
             catch (Exception ex)

@@ -223,6 +223,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAgregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.FormAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
