@@ -63,5 +63,16 @@ namespace TpWindowsForms
         {
 
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado;
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                FormModificar modificar = new FormModificar(seleccionado);
+                modificar.ShowDialog();
+            }
+        }
     }
 }
