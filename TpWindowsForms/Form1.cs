@@ -23,11 +23,19 @@ namespace TpWindowsForms
         private void Form1_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
-            dgvArticulos.DataSource = listaArticulos;
-            dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["Imagen"].Visible = false;
-            pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
+            try
+            {
+                listaArticulos = negocio.listar();
+                dgvArticulos.DataSource = listaArticulos;
+                dgvArticulos.Columns["Id"].Visible = false;
+                dgvArticulos.Columns["Imagen"].Visible = false;
+                pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)

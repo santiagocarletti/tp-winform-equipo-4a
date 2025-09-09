@@ -44,6 +44,7 @@ namespace negocio
                     aux.IdCategoria = (int)lector["IdCategoria"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.Imagen = new Imagen();
+                    if (!(lector["ImagenUrl"] is DBNull))
                     aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
 
                     lista.Add(aux);
