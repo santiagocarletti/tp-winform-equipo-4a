@@ -33,7 +33,9 @@ namespace TpWindowsForms
                 Arti.Codigo = txtNumero.Text;
                 Arti.Nombre = txtNombre.Text;
                 Arti.Descripcion = txtDescripcion.Text;
-
+                Arti.marca = (Marca)cboMarca.SelectedItem;
+                Arti.IdCategoria = (Categoria)cboCategoria.SelectedItem;
+                Arti.Precio = decimal.Parse(txtPrecio.Text);
                 negocio.agregar(Arti);
                 MessageBox.Show("Agregado correctamente");
                 Close();

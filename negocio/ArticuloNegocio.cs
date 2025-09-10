@@ -22,8 +22,8 @@ namespace negocio
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
                 //comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
-                comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS IdMarca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
-
+                //comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS IdMarca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
+                comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS IdMarca, IdCategoria, CA.Descripcion descripcionCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS M, CATEGORIAS CA WHERE A.Id = I.Id AND M.Id = A.IdMarca AND A.IdCategoria = CA.Id";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -41,11 +41,13 @@ namespace negocio
                     //
                     aux.marca.Id = (int)lector["IdMarca"];
                     //
-                    aux.IdCategoria = (int)lector["IdCategoria"];
+                    aux.IdCategoria = new Categoria();
+                    aux.IdCategoria.Id = (int)lector["IdCategoria"];
+                    aux.IdCategoria.Descripcion = (string)lector["descripcionCategoria"];
                     aux.Precio = (decimal)lector["Precio"];
                     aux.Imagen = new Imagen();
                     if (!(lector["ImagenUrl"] is DBNull))
-                    aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
+                        aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
 
                     lista.Add(aux);
 
