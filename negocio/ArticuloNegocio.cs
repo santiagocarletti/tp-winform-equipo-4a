@@ -23,7 +23,7 @@ namespace negocio
                 comando.CommandType = System.Data.CommandType.Text;
                 //comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
                 //comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS IdMarca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
-                comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS IdMarca, IdCategoria, CA.Descripcion descripcionCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS M, CATEGORIAS CA WHERE A.Id = I.Id AND M.Id = A.IdMarca AND A.IdCategoria = CA.Id";
+                comando.CommandText = "SELECT A.Id IdArticulo, A.Codigo codigoArticulo, A.Nombre nombreArticulo, A.Descripcion articuloDescripcion, M.Descripcion marcaDescripcion, CA.Descripcion categoriaDescripcion, Precio precioArticulo, I.ImagenUrl ImagenUrl FROM ARTICULOS A, IMAGENES I, MARCAS M, CATEGORIAS CA WHERE M.Id = A.IdMarca AND CA.Id = A.IdCategoria AND I.Id = A.Id";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -32,19 +32,19 @@ namespace negocio
                 while (lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Id = (int)lector["Id"];
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
+                    aux.Id = (int)lector["IdArticulo"];
+                    aux.Codigo = (string)lector["codigoArticulo"];
+                    aux.Nombre = (string)lector["nombreArticulo"];
+                    aux.Descripcion = (string)lector["articuloDescripcion"];
                     aux.marca = new Marca();
-                    aux.marca.Descripcion = (string)lector["Marca"];
+                    aux.marca.Descripcion = (string)lector["marcaDescripcion"];
                     //
-                    aux.marca.Id = (int)lector["IdMarca"];
+                    //aux.marca.Id = (int)lector["IdMarca"];
                     //
                     aux.IdCategoria = new Categoria();
-                    aux.IdCategoria.Id = (int)lector["IdCategoria"];
-                    aux.IdCategoria.Descripcion = (string)lector["descripcionCategoria"];
-                    aux.Precio = (decimal)lector["Precio"];
+                    //aux.IdCategoria.Id = (int)lector["IdCategoria"];
+                    aux.IdCategoria.Descripcion = (string)lector["categoriaDescripcion"];
+                    aux.Precio = (decimal)lector["precioArticulo"];
                     aux.Imagen = new Imagen();
                     if (!(lector["ImagenUrl"] is DBNull))
                         aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
@@ -68,7 +68,10 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion +"')");
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "' , @IdMarca, @IdCategoria, @Precio)");
+                datos.setearParametro("@IdMarca", nuevo.marca.Id);
+                datos.setearParametro("@IdCategoria", nuevo.IdCategoria.Id);
+                datos.setearParametro("@Precio", nuevo.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
