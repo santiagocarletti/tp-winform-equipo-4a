@@ -16,7 +16,9 @@ namespace dominio
         public Marca marca { get; set; }
         public Categoria IdCategoria { get; set; }
         public decimal Precio { get; set; }
-        public Imagen Imagen { get; set; }
+        //public Imagen Imagen { get; set; }
+        //jueves
+        public List<string> Imagen { get; set; }
 
 
         public override string ToString()

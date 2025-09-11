@@ -28,9 +28,24 @@ namespace negocio
 
                 conexion.Open();
                 lector = comando.ExecuteReader();
+                //jueves
+                Articulo ultCarga = null;
 
                 while (lector.Read())
                 {
+                    //int idArtBD = Convert.ToInt32(lector["Id"]);
+                    int idArtBD = lector["IdArticulo"] != DBNull.Value ? Convert.ToInt32(lector["IdArticulo"]) : 0;
+
+
+                    //jueves. Si es el mismo Articulo, solo agrego imagen para no cargar duplicado
+                    if (ultCarga != null && ultCarga.Id == idArtBD)
+                    {
+                        string imagenUrl = Convert.ToString(lector["ImagenUrl"]);
+                        ultCarga.Imagen.Add(imagenUrl);
+                        continue;
+                    }
+                    //
+
                     Articulo aux = new Articulo();
                     aux.Id = (int)lector["IdArticulo"];
                     aux.Codigo = (string)lector["codigoArticulo"];
@@ -45,12 +60,11 @@ namespace negocio
                     //aux.IdCategoria.Id = (int)lector["IdCategoria"];
                     aux.IdCategoria.Descripcion = (string)lector["categoriaDescripcion"];
                     aux.Precio = (decimal)lector["precioArticulo"];
-                    aux.Imagen = new Imagen();
-                    if (!(lector["ImagenUrl"] is DBNull))
-                        aux.Imagen.ImagenUrl = (string)lector["ImagenUrl"];
+                    aux.Imagen = new List<string>();
+                    aux.Imagen.Add(Convert.ToString(lector["ImagenUrl"]));
 
                     lista.Add(aux);
-
+                    ultCarga = aux;
                 }
 
                 conexion.Close();
@@ -61,22 +75,50 @@ namespace negocio
                 throw ex;
             }
         }
-
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "' , @IdMarca, @IdCategoria, @Precio)");
-                datos.setearParametro("@IdMarca", nuevo.marca.Id);
-                datos.setearParametro("@IdCategoria", nuevo.IdCategoria.Id);
-                datos.setearParametro("@Precio", nuevo.Precio);
-                datos.ejecutarAccion();
+                datos.abrirConexion();
+                datos.setearConsulta(
+                    "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) " +
+                    "VALUES (@codigo, @nombre, @descripcion, @precio, @idMarca, @idCategoria); " +
+                    "SELECT SCOPE_IDENTITY();"
+                );
+                datos.setearParametro("@codigo", nuevo.Codigo);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearParametro("@idMarca", nuevo.marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.IdCategoria.Id);
+
+                int idArticulo = datos.ejecutarAccionconreturn();
+                nuevo.Id = idArticulo;
+
+                datos.limpiarParametros();
+
+                
+                if (nuevo.Imagen != null && nuevo.Imagen.Count > 0)
+                {
+                    foreach (string url in nuevo.Imagen)
+                    {
+                        if (!string.IsNullOrEmpty(url))
+                        {
+                            datos.setearConsulta(
+                                "INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)"
+                            );
+                            datos.setearParametro("@IdArticulo", idArticulo);
+                            datos.setearParametro("@ImagenUrl", url);
+                            datos.ejecutarAccion();
+                            datos.limpiarParametros();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

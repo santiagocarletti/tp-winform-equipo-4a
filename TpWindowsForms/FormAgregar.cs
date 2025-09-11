@@ -30,12 +30,18 @@ namespace TpWindowsForms
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
+                //jueves
+                Arti.Imagen = new List<string>();
+
                 Arti.Codigo = txtNumero.Text;
                 Arti.Nombre = txtNombre.Text;
                 Arti.Descripcion = txtDescripcion.Text;
                 Arti.marca = (Marca)cboMarca.SelectedItem;
                 Arti.IdCategoria = (Categoria)cboCategoria.SelectedItem;
                 Arti.Precio = decimal.Parse(txtPrecio.Text);
+                Arti.Imagen.Add(txtImagenUrl.Text);
+
+                //Lanza excepcion
                 negocio.agregar(Arti);
                 MessageBox.Show("Agregado correctamente");
                 Close();

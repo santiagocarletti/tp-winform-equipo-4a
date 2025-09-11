@@ -44,16 +44,16 @@ namespace negocio
         public void ejecutarAccion()
         {
             comando.Connection = conexion;
-            try
-            {
-                conexion.Open();
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
+            comando.ExecuteNonQuery();
+            //try
+            //{
+            //
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
         }
 
         public void setearParametro(string nombre, object valor)
@@ -67,5 +67,29 @@ namespace negocio
                 lector.Close();
             conexion.Close();
         }
+        //jueves
+        public int ejecutarAccionconreturn()
+        {
+            comando.Connection = conexion;
+            return int.Parse(comando.ExecuteScalar().ToString());
+            //try
+            //{
+            //    conexion.Open();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
+        }
+        public void limpiarParametros()
+        {
+            comando.Parameters.Clear();
+        }
+        public void abrirConexion()
+        {
+            if (conexion.State != System.Data.ConnectionState.Open)
+                conexion.Open();
+        }
+        //
     }
 }

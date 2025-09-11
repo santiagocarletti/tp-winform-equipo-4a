@@ -28,8 +28,11 @@ namespace TpWindowsForms
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
                 dgvArticulos.Columns["Id"].Visible = false;
-                dgvArticulos.Columns["Imagen"].Visible = false;
-                pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
+                //dgvArticulos.Columns["Imagen"].Visible = false;
+                //pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
+                //jueves
+                pbxArticulos.Load(listaArticulos[0].Imagen[0]);
+
             }
             catch (Exception ex)
             {
@@ -41,7 +44,10 @@ namespace TpWindowsForms
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.Imagen.ImagenUrl);
+            //cargarImagen(seleccionado.Imagen.ImagenUrl);
+            //jueves
+            cargarImagen(seleccionado.Imagen[0]);
+
         }
 
         private void cargarImagen(string imagen)
