@@ -47,9 +47,28 @@ namespace TpWindowsForms
             //cargarImagen(seleccionado.Imagen.ImagenUrl);
             //jueves
             cargarImagen(seleccionado.Imagen[0]);
-
+            //viernes
+            CargarListaImagenes();
+            if (cboImagenes.Items.Count > 0)
+            {
+                cboImagenes.SelectedIndex = 0;
+                cargarImagen((string)cboImagenes.Items[0]);
+            }
         }
+        private void CargarListaImagenes()
+        {
+            if (dgvArticulos.CurrentRow == null)
+            { return; }
 
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            cboImagenes.Items.Clear();
+
+            foreach (string Image in seleccionado.Imagen)
+            {
+                cboImagenes.Items.Add(Image);
+            }
+        }
         private void cargarImagen(string imagen)
         {
             try
@@ -87,6 +106,11 @@ namespace TpWindowsForms
                 FormModificar modificar = new FormModificar(seleccionado);
                 modificar.ShowDialog();
             }
+        }
+
+        private void cboImagenes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarImagen((string)cboImagenes.SelectedItem);
         }
     }
 }

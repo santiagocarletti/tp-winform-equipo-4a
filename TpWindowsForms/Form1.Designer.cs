@@ -34,6 +34,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.cboImagenes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulos)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             // pbxArticulos
             // 
             this.pbxArticulos.Location = new System.Drawing.Point(968, 95);
-            this.pbxArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.pbxArticulos.Name = "pbxArticulos";
             this.pbxArticulos.Size = new System.Drawing.Size(240, 209);
             this.pbxArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -66,7 +67,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(45, 326);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 28);
             this.btnAgregar.TabIndex = 2;
@@ -91,7 +92,7 @@
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(153, 326);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(100, 28);
             this.btnModificar.TabIndex = 4;
@@ -103,7 +104,7 @@
             // btnBorrar
             // 
             this.btnBorrar.Location = new System.Drawing.Point(261, 326);
-            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(100, 28);
             this.btnBorrar.TabIndex = 5;
@@ -111,11 +112,21 @@
             this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBorrar.UseVisualStyleBackColor = true;
             // 
+            // cboImagenes
+            // 
+            this.cboImagenes.FormattingEnabled = true;
+            this.cboImagenes.Location = new System.Drawing.Point(968, 329);
+            this.cboImagenes.Name = "cboImagenes";
+            this.cboImagenes.Size = new System.Drawing.Size(240, 24);
+            this.cboImagenes.TabIndex = 6;
+            this.cboImagenes.SelectedIndexChanged += new System.EventHandler(this.cboImagenes_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1256, 385);
+            this.Controls.Add(this.cboImagenes);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblTitulo);
@@ -144,6 +155,7 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.ComboBox cboImagenes;
     }
 }
 
