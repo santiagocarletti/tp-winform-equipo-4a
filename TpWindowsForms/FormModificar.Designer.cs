@@ -44,6 +44,10 @@
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cboImagenes = new System.Windows.Forms.ComboBox();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.lblImagene = new System.Windows.Forms.Label();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,7 +169,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(194, 367);
+            this.btnAceptar.Location = new System.Drawing.Point(194, 467);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(86, 32);
             this.btnAceptar.TabIndex = 15;
@@ -174,18 +178,55 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(305, 367);
+            this.btnCancelar.Location = new System.Drawing.Point(305, 467);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(89, 31);
             this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // cboImagenes
+            // 
+            this.cboImagenes.FormattingEnabled = true;
+            this.cboImagenes.Location = new System.Drawing.Point(194, 358);
+            this.cboImagenes.Name = "cboImagenes";
+            this.cboImagenes.Size = new System.Drawing.Size(201, 24);
+            this.cboImagenes.TabIndex = 17;
+            // 
+            // txtImagen
+            // 
+            this.txtImagen.Location = new System.Drawing.Point(194, 404);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(201, 22);
+            this.txtImagen.TabIndex = 18;
+            // 
+            // lblImagene
+            // 
+            this.lblImagene.AutoSize = true;
+            this.lblImagene.Location = new System.Drawing.Point(52, 365);
+            this.lblImagene.Name = "lblImagene";
+            this.lblImagene.Size = new System.Drawing.Size(67, 16);
+            this.lblImagene.TabIndex = 19;
+            this.lblImagene.Text = "Imagenes";
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Location = new System.Drawing.Point(420, 400);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(73, 26);
+            this.btnAgregarImagen.TabIndex = 20;
+            this.btnAgregarImagen.Text = "Agregar";
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            // 
             // FormModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 530);
+            this.Controls.Add(this.btnAgregarImagen);
+            this.Controls.Add(this.lblImagene);
+            this.Controls.Add(this.txtImagen);
+            this.Controls.Add(this.cboImagenes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pbxArticulo);
@@ -228,5 +269,9 @@
         private System.Windows.Forms.PictureBox pbxArticulo;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cboImagenes;
+        private System.Windows.Forms.TextBox txtImagen;
+        private System.Windows.Forms.Label lblImagene;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }

@@ -42,8 +42,12 @@ namespace TpWindowsForms
             txtCodigo.Text = articulo.Codigo.ToString();
             txtNombre.Text = articulo.Nombre.ToString();
             txtDescripcion.Text = articulo.Descripcion.ToString();
-            cboCategoria.SelectedValue = articulo.IdCategoria;
-            cboMarca.SelectedValue = articulo.marca.Id;
+            if (articulo.IdCategoria != null)
+                cboCategoria.SelectedValue = articulo.IdCategoria.Id;
+
+            if (articulo.marca != null)
+                cboMarca.SelectedValue = articulo.marca.Id;
+
             txtPrecio.Text = articulo.Precio.ToString();
         }
     }

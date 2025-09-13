@@ -21,11 +21,12 @@ namespace negocio
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                //comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
                 //comando.CommandText = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS IdMarca, IdCategoria, Precio, I.ImagenUrl FROM Articulos A, IMAGENES I, MARCAS AS M WHERE A.Id = I.Id AND M.Id = A.IdMarca";
                 //comando.CommandText = "SELECT A.Id IdArticulo, A.Codigo codigoArticulo, A.Nombre nombreArticulo, A.Descripcion articuloDescripcion, M.Descripcion marcaDescripcion, CA.Descripcion categoriaDescripcion, Precio precioArticulo, I.ImagenUrl ImagenUrl FROM ARTICULOS A, IMAGENES I, MARCAS M, CATEGORIAS CA WHERE M.Id = A.IdMarca AND CA.Id = A.IdCategoria AND I.Id = A.Id";
                 //viernes
-                comando.CommandText = "SELECT A.Id AS IdArticulo, A.Codigo AS codigoArticulo, A.Nombre  AS nombreArticulo, A.Descripcion AS articuloDescripcion, M.Descripcion AS marcaDescripcion, CA.Descripcion AS categoriaDescripcion, A.Precio AS precioArticulo, I.ImagenUrl AS ImagenUrl, I.Id AS IdImagen FROM ARTICULOS A LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS CA ON CA.Id = A.IdCategoria ORDER BY A.Id, I.Id;";
+                //comando.CommandText = "SELECT A.Id AS IdArticulo, A.Codigo AS codigoArticulo, A.Nombre  AS nombreArticulo, A.Descripcion AS articuloDescripcion, M.Descripcion AS marcaDescripcion, CA.Descripcion AS categoriaDescripcion, A.Precio AS precioArticulo, I.ImagenUrl AS ImagenUrl, I.Id AS IdImagen FROM ARTICULOS A LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS CA ON CA.Id = A.IdCategoria ORDER BY A.Id, I.Id;";
+                //sabado
+                comando.CommandText = "SELECT A.Id AS IdArticulo, A.Codigo AS codigoArticulo, A.Nombre AS nombreArticulo,\r\n       A.Descripcion AS articuloDescripcion, \r\n       M.Id AS IdMarca, M.Descripcion AS marcaDescripcion, \r\n       CA.Id AS IdCategoria, CA.Descripcion AS categoriaDescripcion, \r\n       A.Precio AS precioArticulo, I.ImagenUrl AS ImagenUrl, I.Id AS IdImagen\r\nFROM ARTICULOS A\r\nLEFT JOIN IMAGENES I ON I.IdArticulo = A.Id\r\nLEFT JOIN MARCAS M ON M.Id = A.IdMarca\r\nLEFT JOIN CATEGORIAS CA ON CA.Id = A.IdCategoria\r\nORDER BY A.Id, I.Id;\r\n";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -54,12 +55,14 @@ namespace negocio
                     aux.Nombre = (string)lector["nombreArticulo"];
                     aux.Descripcion = (string)lector["articuloDescripcion"];
                     aux.marca = new Marca();
+                    //sabado
+                    aux.marca.Id = (int)lector["IdMarca"];
+                    //
                     aux.marca.Descripcion = (string)lector["marcaDescripcion"];
-                    //
-                    //aux.marca.Id = (int)lector["IdMarca"];
-                    //
                     aux.IdCategoria = new Categoria();
-                    //aux.IdCategoria.Id = (int)lector["IdCategoria"];
+                    //sabado
+                    aux.IdCategoria.Id = (int)lector["IdCategoria"];
+                    //
                     aux.IdCategoria.Descripcion = (string)lector["categoriaDescripcion"];
                     aux.Precio = (decimal)lector["precioArticulo"];
                     aux.Imagen = new List<string>();
