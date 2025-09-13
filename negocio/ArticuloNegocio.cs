@@ -26,7 +26,7 @@ namespace negocio
                 //viernes
                 //comando.CommandText = "SELECT A.Id AS IdArticulo, A.Codigo AS codigoArticulo, A.Nombre  AS nombreArticulo, A.Descripcion AS articuloDescripcion, M.Descripcion AS marcaDescripcion, CA.Descripcion AS categoriaDescripcion, A.Precio AS precioArticulo, I.ImagenUrl AS ImagenUrl, I.Id AS IdImagen FROM ARTICULOS A LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS CA ON CA.Id = A.IdCategoria ORDER BY A.Id, I.Id;";
                 //sabado
-                comando.CommandText = "SELECT A.Id AS IdArticulo, A.Codigo AS codigoArticulo, A.Nombre AS nombreArticulo,\r\n       A.Descripcion AS articuloDescripcion, \r\n       M.Id AS IdMarca, M.Descripcion AS marcaDescripcion, \r\n       CA.Id AS IdCategoria, CA.Descripcion AS categoriaDescripcion, \r\n       A.Precio AS precioArticulo, I.ImagenUrl AS ImagenUrl, I.Id AS IdImagen\r\nFROM ARTICULOS A\r\nLEFT JOIN IMAGENES I ON I.IdArticulo = A.Id\r\nLEFT JOIN MARCAS M ON M.Id = A.IdMarca\r\nLEFT JOIN CATEGORIAS CA ON CA.Id = A.IdCategoria\r\nORDER BY A.Id, I.Id;\r\n";
+                comando.CommandText = "SELECT A.Id AS IdArticulo, A.Codigo AS codigoArticulo, A.Nombre AS nombreArticulo, A.Descripcion AS articuloDescripcion, M.Id AS IdMarca, M.Descripcion AS marcaDescripcion, CA.Id AS IdCategoria, CA.Descripcion AS categoriaDescripcion, A.Precio AS precioArticulo, I.ImagenUrl AS ImagenUrl, I.Id AS IdImagen FROM ARTICULOS A LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS CA ON CA.Id = A.IdCategoria ORDER BY A.Id, I.Id;";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -61,9 +61,16 @@ namespace negocio
                     aux.marca.Descripcion = (string)lector["marcaDescripcion"];
                     aux.IdCategoria = new Categoria();
                     //sabado
-                    aux.IdCategoria.Id = (int)lector["IdCategoria"];
+                    if (!(lector["IdCategoria"] is DBNull))
+                        aux.IdCategoria.Id = (int)lector["IdCategoria"];
                     //
-                    aux.IdCategoria.Descripcion = (string)lector["categoriaDescripcion"];
+                    if (!(lector["categoriaDescripcion"] is DBNull))
+                        aux.IdCategoria.Descripcion = (string)lector["categoriaDescripcion"];
+                    else
+                        aux.IdCategoria.Descripcion = "" +
+                            "" +
+                            "";
+                    
                     aux.Precio = (decimal)lector["precioArticulo"];
                     aux.Imagen = new List<string>();
                     aux.Imagen.Add(Convert.ToString(lector["ImagenUrl"]));
@@ -185,3 +192,4 @@ namespace negocio
     }
 
 }
+                    
