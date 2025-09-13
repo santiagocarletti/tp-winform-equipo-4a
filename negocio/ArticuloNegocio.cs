@@ -131,6 +131,57 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        public void modificar(Articulo articulo)
+        {
+            AccesoDatos datosTablaArticulos = new AccesoDatos();
+
+            try
+            {
+                datosTablaArticulos.setearConsulta("UPDATE ARTICULOS SET " +
+                    "Codigo = @codigo, " +
+                    "Nombre = @nombre, " +
+                    "Descripcion = @descripcion, " +
+                    "IdMarca = @idmarca, " +
+                    "IdCategoria = @idcategoria, " +
+                    "Precio = @precio " +
+                    "WHERE Id = @id");
+
+                datosTablaArticulos.setearParametro("@id", articulo.Id);
+                datosTablaArticulos.setearParametro("@codigo", articulo.Codigo);
+                datosTablaArticulos.setearParametro("@nombre", articulo.Nombre);
+                datosTablaArticulos.setearParametro("@descripcion", articulo.Descripcion);
+                datosTablaArticulos.setearParametro("@idmarca", articulo.marca.Id);
+                datosTablaArticulos.setearParametro("@idcategoria", articulo.IdCategoria.Id);
+                datosTablaArticulos.setearParametro("@precio", articulo.Precio);
+                datosTablaArticulos.ejecutarAccion();
+                datosTablaArticulos.limpiarParametros();
+
+                datosTablaArticulos.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @idarticulo");
+                datosTablaArticulos.setearParametro("@idarticulo", articulo.Id);
+                datosTablaArticulos.ejecutarMasAcciones();
+                datosTablaArticulos.limpiarParametros();
+
+                foreach (string imagen in articulo.Imagen)
+                {
+                    if (imagen == "")
+                    { continue; }
+
+                    datosTablaArticulos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idarticulo, @imagenurl)");
+                    datosTablaArticulos.setearParametro("@imagenurl", imagen);
+                    datosTablaArticulos.setearParametro("@idarticulo", articulo.Id);
+                    datosTablaArticulos.ejecutarMasAcciones();
+                    datosTablaArticulos.limpiarParametros();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datosTablaArticulos.cerrarConexion();
+            }
+        }
     }
 
 }

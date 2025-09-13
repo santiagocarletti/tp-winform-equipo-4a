@@ -48,6 +48,7 @@
             this.txtImagen = new System.Windows.Forms.TextBox();
             this.lblImagene = new System.Windows.Forms.Label();
             this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.btnEliminarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +165,7 @@
             this.pbxArticulo.Location = new System.Drawing.Point(516, 103);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(235, 233);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 14;
             this.pbxArticulo.TabStop = false;
             // 
@@ -175,6 +177,7 @@
             this.btnAceptar.TabIndex = 15;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -192,6 +195,7 @@
             this.cboImagenes.Name = "cboImagenes";
             this.cboImagenes.Size = new System.Drawing.Size(201, 24);
             this.cboImagenes.TabIndex = 17;
+            this.cboImagenes.SelectedIndexChanged += new System.EventHandler(this.cboImagenes_SelectedIndexChanged);
             // 
             // txtImagen
             // 
@@ -217,12 +221,24 @@
             this.btnAgregarImagen.TabIndex = 20;
             this.btnAgregarImagen.Text = "Agregar";
             this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
+            // btnEliminarImagen
+            // 
+            this.btnEliminarImagen.Location = new System.Drawing.Point(420, 359);
+            this.btnEliminarImagen.Name = "btnEliminarImagen";
+            this.btnEliminarImagen.Size = new System.Drawing.Size(75, 29);
+            this.btnEliminarImagen.TabIndex = 21;
+            this.btnEliminarImagen.Text = "Eliminar";
+            this.btnEliminarImagen.UseVisualStyleBackColor = true;
+            this.btnEliminarImagen.Click += new System.EventHandler(this.btnEliminarImagen_Click);
             // 
             // FormModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 530);
+            this.Controls.Add(this.btnEliminarImagen);
             this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.lblImagene);
             this.Controls.Add(this.txtImagen);
@@ -273,5 +289,6 @@
         private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.Label lblImagene;
         private System.Windows.Forms.Button btnAgregarImagen;
+        private System.Windows.Forms.Button btnEliminarImagen;
     }
 }

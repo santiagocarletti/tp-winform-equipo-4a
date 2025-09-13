@@ -44,7 +44,9 @@ namespace negocio
         public void ejecutarAccion()
         {
             comando.Connection = conexion;
+            conexion.Open();
             comando.ExecuteNonQuery();
+            //conexion.Close();
             //try
             //{
             //
@@ -71,7 +73,9 @@ namespace negocio
         public int ejecutarAccionconreturn()
         {
             comando.Connection = conexion;
+            conexion.Open();
             return int.Parse(comando.ExecuteScalar().ToString());
+            conexion.Close();
             //try
             //{
             //    conexion.Open();
@@ -91,5 +95,18 @@ namespace negocio
                 conexion.Open();
         }
         //
+        public void ejecutarMasAcciones()
+        {
+            try
+            {
+                comando.Connection = conexion;
+                abrirConexion();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
