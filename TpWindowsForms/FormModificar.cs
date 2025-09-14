@@ -91,7 +91,10 @@ namespace TpWindowsForms
                 MessageBox.Show("No hubo cambios");
                 return;
             }
-
+            if (!ValidarDatos())
+            {
+                return;
+            }
             ModificarArticuloBD();
         }
 
@@ -185,6 +188,50 @@ namespace TpWindowsForms
             {
                 cboImagenes.SelectedIndex = 0;
             }
+        }
+        private bool ValidarDatos()
+        {
+            lblCamposObligatorios.Visible = false;
+            lblErrorCodigo.Visible = false;
+            lblErrorNombre.Visible = false;
+            lblErrorPrecio.Visible = false;
+
+            bool validado = true;
+
+            if (txtCodigo.Text == "")
+            {
+                lblCamposObligatorios.Visible = true;
+                lblErrorCodigo.Visible = true;
+                validado = false;
+            }
+
+            if (txtNombre.Text == "")
+            {
+                lblCamposObligatorios.Visible = true;
+                lblErrorNombre.Visible = true;
+                validado = false;
+            }
+
+            if (!ValidarDecimal(txtPrecio.Text))
+            {
+                lblErrorPrecio.Visible = true;
+                validado = false;
+            }
+
+            return validado;
+        }
+
+        private bool ValidarDecimal(string numero)
+        {
+            if (decimal.TryParse(numero, out decimal num))
+                return true;
+            else
+                return false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

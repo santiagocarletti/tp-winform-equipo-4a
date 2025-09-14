@@ -47,8 +47,15 @@ namespace TpWindowsForms
                 //dgvArticulos.Columns["Imagen"].Visible = false;
                 //pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
                 //jueves
-                pbxArticulos.Load(listaArticulos[0].Imagen[0]);
 
+                //DOMINGO
+                //pbxArticulos.Load(listaArticulos[0].Imagen[0]);
+                if (dgvArticulos.Rows.Count > 0)
+                {
+                    dgvArticulos.Rows[0].Selected = true;
+                    dgvArticulos.CurrentCell = dgvArticulos.Rows[0].Cells[1];
+                    pbxArticulos.Load(listaArticulos[0].Imagen[0]);
+                }
             }
             catch (Exception ex)
             {
