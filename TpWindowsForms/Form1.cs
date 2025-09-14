@@ -27,9 +27,7 @@ namespace TpWindowsForms
 
             cboCampo.Items.Add("Nombre"); 
             cboCampo.Items.Add("Marca");
-            cboCampo.Items.Add("Precio");    
-           
-
+            cboCampo.Items.Add("Precio");
         }
         private void cargar()
         {
@@ -159,17 +157,6 @@ namespace TpWindowsForms
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnFiltroRapido_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaArticulosFiltrada;
@@ -186,6 +173,19 @@ namespace TpWindowsForms
 
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaArticulosFiltrada;
+
+            if (dgvArticulos.CurrentRow == null)
+            {
+                btnModificar.Enabled = false;
+                btnBorrar.Enabled = false;
+                btnDetalles.Enabled = false;
+            }
+            else
+            {
+                btnModificar.Enabled = true;
+                btnBorrar.Enabled = true;
+                btnDetalles.Enabled = true;
+            }
         }
 
         private void label1_Click_2(object sender, EventArgs e)
@@ -216,7 +216,6 @@ namespace TpWindowsForms
             return false;
 
         }
-
         private bool validarSoloNumeros(string cadena)
         {
             foreach (char caracter in cadena)
@@ -245,7 +244,20 @@ namespace TpWindowsForms
                 string filtro = txtBusquedaAvanzada.Text;
                 dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
 
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    btnModificar.Enabled = false;
+                    btnBorrar.Enabled = false;
+                    btnDetalles.Enabled = false;
+                }
+                else
+                {
+                    btnModificar.Enabled = true;
+                    btnBorrar.Enabled = true;
+                    btnDetalles.Enabled = true;
+                }
             }
+
             catch (Exception ex)
             {
 
@@ -283,6 +295,9 @@ namespace TpWindowsForms
             dgvArticulos.DataSource = listaArticulos;
             txtBusquedaAvanzada.Clear();
             cboCampo.Items.Clear();
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
             cboCriterio.Items.Clear();
         }
 

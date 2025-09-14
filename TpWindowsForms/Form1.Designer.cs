@@ -158,7 +158,6 @@
             this.lblFiltroRapido.Size = new System.Drawing.Size(117, 16);
             this.lblFiltroRapido.TabIndex = 8;
             this.lblFiltroRapido.Text = "Búsqueda Rápida";
-            this.lblFiltroRapido.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // txtBusquedaAvanzada
             // 

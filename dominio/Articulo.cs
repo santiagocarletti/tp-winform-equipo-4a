@@ -24,8 +24,6 @@ namespace dominio
         //public Imagen Imagen { get; set; }
         //jueves
         public List<string> Imagen { get; set; }
-
-
         public override string ToString()
         {
             return marca.Descripcion;
