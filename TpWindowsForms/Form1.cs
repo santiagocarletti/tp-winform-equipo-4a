@@ -223,5 +223,18 @@ namespace TpWindowsForms
                 cboCriterio.Items.Add("Finaliza con");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvArticulos.DataSource = listaArticulos;
+            txtBusquedaAvanzada.Clear();
+            cboCampo.Items.Clear();
+            cboCriterio.Items.Clear();
+        }
     }
 }
