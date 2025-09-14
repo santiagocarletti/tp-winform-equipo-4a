@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -189,24 +190,60 @@ namespace TpWindowsForms
 
         private void label1_Click_2(object sender, EventArgs e)
         {
+        }
+
+        private bool validarFiltro()
+        {
+            if (cboCampo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione el campo");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione el criterio");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if(validarSoloNumeros(txtBusquedaAvanzada.Text))
+                {
+                    MessageBox.Show("solo números");
+                    return true;
+                }
+            }
+
+            return false;
 
         }
+
+        private bool validarSoloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (char.IsNumber(caracter))
+                    return false;
+
+            }
+            return true;
+        }
+
 
         private void btnBusquedaAvanzada_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-
             try
             {
+                if (validarFiltro())
+                {
+                    return;
+                }
 
                 List<Articulo> listaArticulosFiltrada;
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtBusquedaAvanzada.Text;
                 dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
-
-
-
 
             }
             catch (Exception ex)
