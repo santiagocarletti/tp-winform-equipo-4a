@@ -39,6 +39,7 @@ namespace negocio
             {
                 throw ex;
             }
+
         }
 
         public void ejecutarAccion()
@@ -46,7 +47,7 @@ namespace negocio
             comando.Connection = conexion;
             conexion.Open();
             comando.ExecuteNonQuery();
-            //conexion.Close();
+            conexion.Close();
             //try
             //{
             //
@@ -76,6 +77,7 @@ namespace negocio
             conexion.Open();
             return int.Parse(comando.ExecuteScalar().ToString());
             conexion.Close();
+
             //try
             //{
             //    conexion.Open();
@@ -106,6 +108,10 @@ namespace negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                cerrarConexion();
             }
         }
     }

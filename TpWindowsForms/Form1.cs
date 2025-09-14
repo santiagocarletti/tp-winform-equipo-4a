@@ -22,6 +22,10 @@ namespace TpWindowsForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+        private void cargar()
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
@@ -40,7 +44,6 @@ namespace TpWindowsForms
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -85,6 +88,7 @@ namespace TpWindowsForms
         {
             FormAgregar alta = new FormAgregar();
             alta.ShowDialog();
+            cargar();
         }
 
         private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -111,6 +115,27 @@ namespace TpWindowsForms
         private void cboImagenes_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarImagen((string)cboImagenes.SelectedItem);
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro que querer eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
