@@ -23,6 +23,15 @@ namespace TpWindowsForms
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
+
+            cboCampo.Items.Add("Nombre"); 
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+            
+            
+
+
+
         }
         private void cargar()
         {
@@ -164,6 +173,55 @@ namespace TpWindowsForms
 
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaArticulosFiltrada;
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBusquedaAvanzada_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+
+                List<Articulo> listaArticulosFiltrada;
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtBusquedaAvanzada.Text;
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+                cboCriterio.Items.Add("Mayor a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Empieza con");
+                cboCriterio.Items.Add("Contiene");
+                cboCriterio.Items.Add("Finaliza con");
+            }
         }
     }
 }
