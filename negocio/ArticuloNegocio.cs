@@ -310,6 +310,67 @@ namespace negocio
                 throw ex;
             }
         }
+        public Articulo obtenerPorId(int idArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Articulo articulo = new Articulo();
+
+            try
+            {
+                datos.setearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, " +
+                                     "C.Descripcion AS Categoria, M.Descripcion AS Marca, I.ImagenUrl " +
+                                     "FROM Articulos A " +
+                                     "LEFT JOIN Categorias C ON A.IdCategoria = C.Id " +
+                                     "LEFT JOIN Marcas M ON A.IdMarca = M.Id " +
+                                     "LEFT JOIN Imagenes I ON I.IdArticulo = A.Id " +
+                                     "WHERE A.Id = @idArticulo");
+                datos.setearParametro("@idArticulo", idArticulo);
+                datos.ejecutarLectura();
+
+                bool banderaImagenes = false;
+
+                while (datos.Lector.Read())
+                {
+                    if (banderaImagenes)
+                    {
+                        articulo.Imagen.Add(Convert.ToString(datos.Lector["ImagenUrl"]));
+                        continue;
+                    }
+
+                    articulo.Id = Convert.ToInt32(datos.Lector["Id"]);
+                    articulo.Codigo = Convert.ToString(datos.Lector["Codigo"]);
+                    articulo.Nombre = Convert.ToString(datos.Lector["Nombre"]);
+                    articulo.Descripcion = Convert.ToString(datos.Lector["Descripcion"]);
+                    articulo.Precio = Convert.ToDecimal(datos.Lector["Precio"]);
+
+                    articulo.marca = new Marca
+                    {
+                        Descripcion = Convert.ToString(datos.Lector["Marca"])
+                    };
+
+                    articulo.IdCategoria = new Categoria
+                    {
+                        Descripcion = Convert.ToString(datos.Lector["Categoria"])
+                    };
+
+                    // Manejo de imágenes
+                    articulo.Imagen = new List<string>();
+                    articulo.Imagen.Add(Convert.ToString(datos.Lector["ImagenUrl"]));
+
+                    banderaImagenes = true;
+                }
+
+                return articulo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
                     

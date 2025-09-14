@@ -241,5 +241,31 @@ namespace TpWindowsForms
             cboCampo.Items.Clear();
             cboCriterio.Items.Clear();
         }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                DataGridViewRow filaSeleccionada = dgvArticulos.CurrentRow;
+                int idArticulo = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value);
+
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                Articulo articuloSeleccionado = negocio.obtenerPorId(idArticulo);
+
+                if (articuloSeleccionado != null)
+                {
+                    FormDetalles detalles = new FormDetalles(articuloSeleccionado);
+                    detalles.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el artículo seleccionado.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un artículo de la lista.");
+            }
+        }
     }
 }
