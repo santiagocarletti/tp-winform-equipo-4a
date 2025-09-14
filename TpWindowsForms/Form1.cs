@@ -150,7 +150,7 @@ namespace TpWindowsForms
             
             if (filtro != "")
             {
-                listaArticulosFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()));
+                listaArticulosFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()) || x.marca.Descripcion.ToLower().Contains(filtro.ToLower()));
             }
             else
             {
