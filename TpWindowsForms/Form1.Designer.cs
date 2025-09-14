@@ -37,7 +37,6 @@
             this.cboImagenes = new System.Windows.Forms.ComboBox();
             this.txtFiltroRapido = new System.Windows.Forms.TextBox();
             this.lblFiltroRapido = new System.Windows.Forms.Label();
-            this.btnFiltroRapido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulos)).BeginInit();
             this.SuspendLayout();
@@ -123,37 +122,27 @@
             // 
             // txtFiltroRapido
             // 
-            this.txtFiltroRapido.Location = new System.Drawing.Point(119, 43);
+            this.txtFiltroRapido.Location = new System.Drawing.Point(117, 47);
             this.txtFiltroRapido.Name = "txtFiltroRapido";
             this.txtFiltroRapido.Size = new System.Drawing.Size(156, 20);
             this.txtFiltroRapido.TabIndex = 7;
+            this.txtFiltroRapido.TextChanged += new System.EventHandler(this.txtFiltroRapido_TextChanged);
             // 
             // lblFiltroRapido
             // 
             this.lblFiltroRapido.AutoSize = true;
-            this.lblFiltroRapido.Location = new System.Drawing.Point(15, 46);
+            this.lblFiltroRapido.Location = new System.Drawing.Point(15, 49);
             this.lblFiltroRapido.Name = "lblFiltroRapido";
             this.lblFiltroRapido.Size = new System.Drawing.Size(92, 13);
             this.lblFiltroRapido.TabIndex = 8;
             this.lblFiltroRapido.Text = "Búsqueda Rápida";
             this.lblFiltroRapido.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // btnFiltroRapido
-            // 
-            this.btnFiltroRapido.Location = new System.Drawing.Point(281, 43);
-            this.btnFiltroRapido.Name = "btnFiltroRapido";
-            this.btnFiltroRapido.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltroRapido.TabIndex = 9;
-            this.btnFiltroRapido.Text = "Filtrar";
-            this.btnFiltroRapido.UseVisualStyleBackColor = true;
-            this.btnFiltroRapido.Click += new System.EventHandler(this.btnFiltroRapido_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 319);
-            this.Controls.Add(this.btnFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.cboImagenes);
@@ -188,7 +177,6 @@
         private System.Windows.Forms.ComboBox cboImagenes;
         private System.Windows.Forms.TextBox txtFiltroRapido;
         private System.Windows.Forms.Label lblFiltroRapido;
-        private System.Windows.Forms.Button btnFiltroRapido;
     }
 }
 

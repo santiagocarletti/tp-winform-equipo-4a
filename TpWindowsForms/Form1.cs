@@ -145,10 +145,15 @@ namespace TpWindowsForms
 
         private void btnFiltroRapido_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
             List<Articulo> listaArticulosFiltrada;
             string filtro = txtFiltroRapido.Text;
-            
-            if (filtro != "")
+
+            if (filtro.Length >= 3)
             {
                 listaArticulosFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()) || x.marca.Descripcion.ToLower().Contains(filtro.ToLower()));
             }
