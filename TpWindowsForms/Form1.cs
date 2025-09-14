@@ -26,11 +26,8 @@ namespace TpWindowsForms
 
             cboCampo.Items.Add("Nombre"); 
             cboCampo.Items.Add("Marca");
-            cboCampo.Items.Add("Precio");
-            
-            
-
-
+            cboCampo.Items.Add("Precio");    
+           
 
         }
         private void cargar()
@@ -40,6 +37,12 @@ namespace TpWindowsForms
             {
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
+
+                //formateo de la celda para moneda
+                dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C2";
+                dgvArticulos.Columns["Precio"].DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("es-AR");
+
+
                 dgvArticulos.Columns["Id"].Visible = false;
                 //dgvArticulos.Columns["Imagen"].Visible = false;
                 //pbxArticulos.Load(listaArticulos[0].Imagen.ImagenUrl);
