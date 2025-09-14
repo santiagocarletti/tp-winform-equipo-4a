@@ -137,5 +137,28 @@ namespace TpWindowsForms
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltroRapido_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaArticulosFiltrada;
+            string filtro = txtFiltroRapido.Text;
+            
+            if (filtro != "")
+            {
+                listaArticulosFiltrada = listaArticulos.FindAll(x => x.Nombre.ToLower().Contains(filtro.ToLower()));
+            }
+            else
+            {
+                listaArticulosFiltrada = listaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaArticulosFiltrada;
+        }
     }
 }
