@@ -144,6 +144,7 @@ namespace negocio
 
             try
             {
+                datosTablaArticulos.abrirConexion();
                 datosTablaArticulos.setearConsulta("UPDATE ARTICULOS SET " +
                     "Codigo = @codigo, " +
                     "Nombre = @nombre, " +
@@ -192,9 +193,10 @@ namespace negocio
 
         public void eliminar(int Id)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
+                datos.abrirConexion();
                 datos.setearConsulta("delete from ARTICULOS where Id = @Id");
                 datos.setearParametro("@Id", Id);
                 datos.ejecutarAccion();
@@ -203,6 +205,10 @@ namespace negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 

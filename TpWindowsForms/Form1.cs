@@ -58,7 +58,9 @@ namespace TpWindowsForms
         }
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-           Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            if (dgvArticulos.CurrentRow == null || dgvArticulos.CurrentRow.DataBoundItem == null)
+                return;
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             //cargarImagen(seleccionado.Imagen.ImagenUrl);
             //jueves
             cargarImagen(seleccionado.Imagen[0]);
