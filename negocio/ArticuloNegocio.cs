@@ -67,9 +67,7 @@ namespace negocio
                     if (!(lector["categoriaDescripcion"] is DBNull))
                         aux.IdCategoria.Descripcion = (string)lector["categoriaDescripcion"];
                     else
-                        aux.IdCategoria.Descripcion = "" +
-                            "" +
-                            "";
+                        aux.IdCategoria.Descripcion = "";
                     
                     aux.Precio = (decimal)lector["precioArticulo"];
                     aux.Imagen = new List<string>();
@@ -138,6 +136,7 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
         public void modificar(Articulo articulo)
         {
             AccesoDatos datosTablaArticulos = new AccesoDatos();
@@ -272,11 +271,22 @@ namespace negocio
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
+                Articulo ultCarga = null;
 
                 while (datos.Lector.Read())
                 {
-  
+                    //int idArtBD = Convert.ToInt32(lector["Id"]);
                     int idArtBD = datos.Lector["IdArticulo"] != DBNull.Value ? Convert.ToInt32(datos.Lector["IdArticulo"]) : 0;
+
+
+                    //jueves. Si es el mismo Articulo, solo agrego imagen para no cargar duplicado
+                    if (ultCarga != null && ultCarga.Id == idArtBD)
+                    {
+                        string imagenUrl = Convert.ToString(datos.Lector["ImagenUrl"]);
+                        ultCarga.Imagen.Add(imagenUrl);
+                        continue;
+                    }
+                    //
 
                     Articulo aux = new Articulo();
                     aux.Id = (int)datos.Lector["IdArticulo"];
@@ -284,29 +294,32 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["nombreArticulo"];
                     aux.Descripcion = (string)datos.Lector["articuloDescripcion"];
                     aux.marca = new Marca();
+                    //sabado
                     aux.marca.Id = (int)datos.Lector["IdMarca"];
+                    //
                     aux.marca.Descripcion = (string)datos.Lector["marcaDescripcion"];
                     aux.IdCategoria = new Categoria();
+                    //sabado
                     if (!(datos.Lector["IdCategoria"] is DBNull))
                         aux.IdCategoria.Id = (int)datos.Lector["IdCategoria"];
+                    //
                     if (!(datos.Lector["categoriaDescripcion"] is DBNull))
                         aux.IdCategoria.Descripcion = (string)datos.Lector["categoriaDescripcion"];
                     else
-                        aux.IdCategoria.Descripcion = "" +
-                            "" +
-                            "";
+                        aux.IdCategoria.Descripcion = "";
 
                     aux.Precio = (decimal)datos.Lector["precioArticulo"];
                     aux.Imagen = new List<string>();
                     aux.Imagen.Add(Convert.ToString(datos.Lector["ImagenUrl"]));
 
                     lista.Add(aux);
+                    ultCarga = aux;
                 }
+
                 return lista;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
