@@ -68,7 +68,6 @@
             this.dgvArticulos.Size = new System.Drawing.Size(919, 209);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.TabStop = false;
-            this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbxArticulos
@@ -104,7 +103,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(148, 39);
             this.lblTitulo.TabIndex = 3;
             this.lblTitulo.Text = "Artículos";
-            this.lblTitulo.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnModificar
             // 

@@ -103,24 +103,12 @@ namespace TpWindowsForms
                 pbxArticulos.Load("https://png.pngtree.com/png-vector/20230407/ourmid/pngtree-placeholder-line-icon-vector-png-image_6691835.png");
             }
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormAgregar alta = new FormAgregar();
             alta.ShowDialog();
             cargar();
         }
-
-        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dgvArticulos.CurrentRow != null)
@@ -131,12 +119,10 @@ namespace TpWindowsForms
                 modificar.ShowDialog();
             }
         }
-
         private void cboImagenes_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarImagen((string)cboImagenes.SelectedItem);
         }
-
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -188,11 +174,6 @@ namespace TpWindowsForms
                 btnDetalles.Enabled = true;
             }
         }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-        }
-
         private bool validarFiltro()
         {
             if (cboCampo.SelectedIndex == -1)
@@ -213,9 +194,7 @@ namespace TpWindowsForms
                     return true;
                 }
             }
-
             return false;
-
         }
         private bool validarSoloNumeros(string cadena)
         {
@@ -227,8 +206,6 @@ namespace TpWindowsForms
             }
             return true;
         }
-
-
         private void btnBusquedaAvanzada_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();

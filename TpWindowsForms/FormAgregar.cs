@@ -23,13 +23,55 @@ namespace TpWindowsForms
         {
             this.Close();
         }
+        private bool validarFiltro()
+        {
+            if (txtNumero.Text == "")
+            {
+                MessageBox.Show("Ingrese código del artículo");
+                return true;
+            }
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("Ingrese nombre del artículo");
+                return true;
+            }
 
+            if (cboMarca.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione la marca");
+                return true;
+            }
+            if (cboCategoria.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione la categoría");
+                return true;
+            }
+            if (validarSoloNumeros(txtPrecio.Text))
+            {
+                MessageBox.Show("Ingrese solo números en el precio");
+                return true;
+            }
+            return false;
+        }
+        private bool validarSoloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (char.IsNumber(caracter))
+                    return false;
+            }
+            return true;
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Articulo Arti = new Articulo();
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
+                if (validarFiltro())
+                {
+                    return;
+                }
                 //jueves
                 Arti.Imagen = new List<string>();
 
@@ -52,23 +94,22 @@ namespace TpWindowsForms
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void FormAgregar_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio cNegocio = new CategoriaNegocio();
             try
             {
-                cboMarca.DataSource = marcaNegocio.listar();    
+                cboMarca.DataSource = marcaNegocio.listar();
+                cboMarca.SelectedIndex = -1;
                 cboCategoria.DataSource = cNegocio.listar();
-
+                cboCategoria.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void txtImagenUrl_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtImagenUrl.Text);
