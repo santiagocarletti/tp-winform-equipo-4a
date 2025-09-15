@@ -173,6 +173,7 @@ namespace TpWindowsForms
 
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaArticulosFiltrada;
+            dgvArticulos.Columns["Id"].Visible = false;
 
             if (dgvArticulos.CurrentRow == null)
             {
